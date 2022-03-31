@@ -1,0 +1,215 @@
+@import 'reset';
+@import './main';
+@import './icons/line-awesome/css/line-awesome.min';
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--content-link-color);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--content-link-color-hover);
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--heading-text-color);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    &.big {
+        font-size: 1.25rem;
+    }
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+.no-btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.padding-wrapper {
+    padding-top: var(--padding-lg);
+    padding-bottom: var(--padding-lg);
+
+    @include media("<desktop") {
+        padding-right: var(--padding-lg);
+        padding-left: var(--padding-lg);
+    }
+}
+
+.gap-lg {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--body-text-color);
+    background-attachment: fixed;
+}
+
+.main {
+    padding: var(--padding-lg) 0;
+
+    @include media("<=tablet") {
+        padding: 0;
+    }
+}
+
+body {
+    min-height: 100vh;
+}
+
+.main-content {
+    @include media(">desktop") {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1024px) minmax(0, 1fr);
+        gap: var(--padding-lg);
+        grid-template-areas: "sidebar-1 main sidebar-2";
+        // padding: 0 1rem;
+    }
+
+    @include media("<desktop") {
+        padding: var(--space-lg);
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+    .sidebar-1 {
+        grid-area: sidebar-1;
+        background: var(--white);
+        border-right: 1px solid var(--border-color);
+    }
+
+    .sidebar-2 {
+        grid-area: sidebar-2;
+    }
+
+    .sidebar-1,
+    .sidebar-2 {
+        display: none;
+
+        @include media(">=desktop") {
+            display: block;
+        }
+
+        h3 {
+            margin-bottom: var(--space-sm);
+        }
+
+        &__inner {
+            position: sticky;
+            top: calc(var(--navbar-height) + var(--padding-lg));
+            display: flex;
+            gap: var(--space-lg);
+            align-items: flex-end;
+            flex-direction: column;
+        }
+
+        section {
+            background-color: var(--white);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            padding: var(--padding-lg);
+            border: 1px solid var(--border-color);
+            border-right: 0;
+            max-width: 350px;
+            width: 100%;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: var(--space-lg);
+        padding-top: var(--padding-lg);
+
+        @include media(">=desktop") {
+            padding: var(--padding-lg) 0;
+        }
+    }
+}
+
+.css-ja5taz-MuiTooltip-tooltip {
+    background: var(--white) !important;
+    color: var(--secondary-color) !important;
+    border: 2px solid var(--secondary-color);
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: var(--space-sm) var(--space-md);
+}
+
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+@keyframes ellipsis {
+    0% {
+        content: ".";
+    }
+
+    33% {
+        content: "..";
+    }
+
+    66% {
+        content: "...";
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-10px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}

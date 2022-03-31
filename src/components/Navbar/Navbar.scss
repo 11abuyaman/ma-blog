@@ -1,0 +1,126 @@
+@import "../../themeStyles/main";
+
+.navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    z-index: 9;
+    background-color: var(--white);
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 var(--padding-lg);
+    border-bottom: 1px solid var(--border-color);
+    height: var(--navbar-height);
+
+    &__progress-bar {
+        height: 5px;
+        width: 0;
+        position: absolute;
+        background: var(--badge-odd-bg);
+        bottom: -5px;
+        border-radius: 0 20px 20px 0;
+        left: 0;
+    }
+
+    &__m-expand-menu {
+        display: block;
+        width: 25px;
+    }
+
+    &__links-container {
+        position: fixed;
+        margin-left: 100vw;
+        inset: 0 0 0 30%;
+        gap: 4px;
+        display: grid;
+        transition: .25s;
+
+        &.open {
+            margin: 0;
+        }
+    }
+
+    &__links {
+        gap: var(--padding-sm);
+        background: var(--white);
+        border-left: 1px solid var(--border-color);
+        padding: 20px;
+        height: 100vh;
+    }
+
+    &__link {
+        display: block;
+        position: relative;
+
+        @include media(">=tablet") {
+            &::before {
+                content: "";
+                background: var(--main-color);
+                left: 50%;
+                right: 50%;
+                height: 3px;
+                position: absolute;
+                bottom: -17px;
+                transition: 0.25s;
+                border-radius: 9px;
+                opacity: 0;
+            }
+
+            &.active {
+                &::before {
+                    left: 0%;
+                    right: 0;
+                    opacity: 1;
+                }
+            }
+        }
+
+        @include media("<tablet") {
+            padding: 10px;
+            border-radius: var(--radius-md);
+
+            &.active {
+                background-color: var(--active-nav-link);
+                text-decoration: none;
+                padding: 10px 25px;
+            }
+        }
+    }
+
+    &__links__overlay {
+        transition: .25s background-color;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        margin: 100vw;
+    }
+
+    .open &__links__overlay {
+        background-color: rgba(0, 0, 0, .25);
+        margin: 0;
+    }
+
+    @include media(">=tablet") {
+        justify-content: flex-start;
+
+        &__links-container {
+            display: flex;
+            position: relative;
+            inset: unset;
+            gap: var(--padding-sm);
+            margin: 0;
+        }
+
+        &__links {
+            display: flex;
+            border: none;
+            padding: 0;
+            height: unset;
+        }
+
+        &__m-expand-menu {
+            display: none;
+        }
+    }
+}

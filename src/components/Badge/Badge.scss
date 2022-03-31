@@ -1,0 +1,24 @@
+@import "../../themeStyles/main";
+
+.badge {
+    background-color: var(--badge-bg);
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    text-transform: capitalize;
+    color: var(--badge-color);
+    font-size: small;
+
+    &.badge-odd {
+        background-color: var(--badge-odd-bg);
+        color: var(--badge-odd-color);
+    }
+
+    &.clickable {
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+    }
+}

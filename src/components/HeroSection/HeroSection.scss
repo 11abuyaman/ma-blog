@@ -1,0 +1,60 @@
+@import "../../themeStyles/main";
+
+.hero-section {
+    border: 1px solid var(--border-color);
+    background-color: var(--hero-section-bg);
+    min-height: calc(100vh - var(--navbar-height) - var(--padding-lg) * 2);
+    border-radius: var(--space-lg);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    border-top: 0;
+
+    &__title {
+        font-weight: bold;
+        line-height: 1.1;
+
+        @include media("<tablet") {
+            font-size: 2.4rem;
+        }
+    }
+
+    &__inner {
+        gap: var(--padding-lg);
+        display: grid;
+        padding: var(--padding-lg);
+
+        @include media("<tablet") {
+            padding: calc(var(--padding-lg) * 2);
+        }
+
+        img {
+            @include media(">=tablet") {
+                max-width: 225px;
+            }
+        }
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--space-md);
+        }
+    }
+
+    @include media(">=tablet") {
+        min-height: 350px;
+        height: 350px;
+        overflow: hidden;
+
+        &__inner {
+            width: 100%;
+            grid-template-columns: 50% 1fr;
+
+            img {
+                max-width: unset;
+            }
+        }
+    }
+}

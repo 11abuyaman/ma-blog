@@ -1,0 +1,40 @@
+@import "../../themeStyles/main";
+
+.no-results {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-radius: var(--radius-lg);
+    place-content: center;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    background: var(--danger-shadow-color);
+
+    @include media(">=tablet") {
+        max-height: 200px;
+    }
+
+    &__img {
+        @include media(">tablet") {
+            width: 375px;
+            margin-right: -25px;
+        }
+
+       
+    }
+
+    &__message-wrapper {
+        flex: 1;
+        padding: 50px;
+    }
+
+    @include media(">=tablet") {
+        flex-direction: row;
+
+        &__img-wrapper {
+            width: 30%;
+        }
+    }
+}
