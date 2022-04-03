@@ -3,7 +3,7 @@
 .nav-user {
     border-radius: 50px;
     padding: var(--padding-xs) 12px var(--padding-xs) 8px;
-    border: 1px solid var(--border-color);
+    border: var(--border-width) solid var(--border-color);
     gap: var(--space-xs);
     display: flex;
     align-items: center;

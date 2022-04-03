@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import Button from '../Button/Button';
 import NavUser from '../NavUser/NavUser';
 import "./Navbar.scss";
 
@@ -53,6 +54,7 @@ const Navbar = ({ links, hasProgressBar }) => {
                 stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
+            <Button to={"/post/eededse/edit/"} label="add new" />
             <NavUser />
         </nav>
     )

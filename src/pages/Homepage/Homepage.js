@@ -40,7 +40,7 @@ const Homepage = ({ posts, initPosts, searchedTerm, searchResults, updateSearchT
             </MetaTags>
             <div className="main">
                 <HeroSection
-                    title="Welcome to Da'Recipe"
+                    title="Welcome to Ma'Blog"
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     callToActionLabel={<>About us! <i className="las la-long-arrow-alt-right"></i></>}
                     callToActionLink="/about"
@@ -54,7 +54,7 @@ const Homepage = ({ posts, initPosts, searchedTerm, searchResults, updateSearchT
                     />
                     <PostsList
                         numToExpect={8}
-                        name="Random recipes"
+                        name="Recent posts"
                         posts={posts.recipes}
                         actionLabel="Reload random recipes"
                         actionComponent={<i className="las la-redo-alt"></i>}

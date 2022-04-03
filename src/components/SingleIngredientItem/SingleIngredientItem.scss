@@ -3,7 +3,7 @@
 .single-ingredient-item {
     display: flex;
     box-sizing: content-box;
-    border: 1px solid var(--border-color);
+    border: var(--border-width) solid var(--border-color);
     border-radius: 6px;
     overflow: hidden;
 
@@ -31,6 +31,6 @@
         object-fit: contain;
         background-color: var(--white);
         padding: 10px;
-        border-right: 1px solid var(--shadow-color);
+        border-right: var(--border-width) solid var(--shadow-color);
     }
 }

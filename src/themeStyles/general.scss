@@ -1,6 +1,8 @@
 @import 'reset';
 @import './main';
 @import './icons/line-awesome/css/line-awesome.min';
+@import "./editor";
+@import "./typography";
 
 * {
     box-sizing: border-box;
@@ -87,6 +89,8 @@ body {
 }
 
 .main-content {
+    min-height: calc(100vh - var(--navbar-height));
+
     @include media(">desktop") {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1024px) minmax(0, 1fr);
@@ -106,7 +110,7 @@ body {
     .sidebar-1 {
         grid-area: sidebar-1;
         background: var(--white);
-        border-right: 1px solid var(--border-color);
+        border-right: var(--border-width) solid var(--border-color);
     }
 
     .sidebar-2 {
@@ -127,20 +131,19 @@ body {
 
         &__inner {
             position: sticky;
-            top: calc(var(--navbar-height) + var(--padding-lg));
+            top: var(--navbar-height);
             display: flex;
             gap: var(--space-lg);
             align-items: flex-end;
             flex-direction: column;
+            padding: var(--padding-lg);
         }
 
         section {
             background-color: var(--white);
-            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            border-radius: var(--radius-sm);
             padding: var(--padding-lg);
-            border: 1px solid var(--border-color);
-            border-right: 0;
-            max-width: 350px;
+            border: var(--border-width) solid var(--border-color);
             width: 100%;
         }
     }

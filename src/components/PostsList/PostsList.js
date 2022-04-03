@@ -52,7 +52,7 @@ const PostsList = ({ name, posts, numToExpect, loading, actionComponent, actionO
                                             image={post.featured_image}
                                             title={post.title}
                                             description={post.summary}
-                                            dishTypes={post.dishTypes}
+                                            tags={post.tags}
                                             veryHealthy={post.veryHealthy}
                                             link={`/post/${post._id}/`}
                                         />

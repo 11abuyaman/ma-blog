@@ -1,0 +1,22 @@
+.menu-bar {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+
+    &__btn {
+        background-color: transparent;
+        color: grey;
+        font-size: 18px;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.active {
+            color: #fff;
+            background-color: red;
+        }
+    }
+}

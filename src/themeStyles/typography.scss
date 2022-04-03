@@ -1,0 +1,48 @@
+$light: 300;
+$normal: 400;
+$medium: 500;
+$bold: 700;
+
+h1 {
+    font-size: 96px;
+    letter-spacing: -1.5px;
+    font-weight: $light;
+}
+
+h2 {
+    font-size: 60px;
+    letter-spacing: -0.5px;
+    font-weight: $light;
+}
+
+h3 {
+    font-size: 48px;
+    letter-spacing: 0;
+    font-weight: $normal;
+}
+
+h4 {
+    font-size: 34px;
+    letter-spacing: 0.25px;
+    font-weight: $normal;
+}
+
+h5 {
+    font-size: 24px;
+    letter-spacing: 0;
+    font-weight: $normal;
+}
+
+h6 {
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    font-weight: $medium;
+}
+
+strong{
+    font-weight: $bold;
+}
+
+em{
+    font-style: italic;
+}

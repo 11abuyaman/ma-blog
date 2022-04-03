@@ -35,11 +35,12 @@ function App() {
       url: '/Fourth'
     }
   ]
+
   return (
     <div className="main-container">
       <Navbar links={links} />
       <main className="main-content">
-        <Suspense fallback={<LoadingScreen fullscreen />}>
+        <Suspense fallback={<LoadingScreen fullScreen />}>
           <Routes>
             <Route exact path="/" element={<Homepage />} />
             <Route path="about" element={<About />} />

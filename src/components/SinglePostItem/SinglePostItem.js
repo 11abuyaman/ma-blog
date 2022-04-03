@@ -4,7 +4,7 @@ import { API_BASE_URL, stripHTML, truncateString } from '../../commons/functions
 import Badge from '../Badge/Badge';
 import "./SinglePostItem.scss";
 
-const SinglePostItem = ({ image, title, description, link, dishTypes, veryHealthy, loading }) => {
+const SinglePostItem = ({ image, title, description, link, tags, loading }) => {
     /**
      * Represents a single recipe item(card) in a list of recipes e.g. (PostsList)
      * @param {string} image - An image URL to show the recipe image
@@ -41,7 +41,7 @@ const SinglePostItem = ({ image, title, description, link, dishTypes, veryHealth
             <div className="single-post">
                 {
                     // If veryHealthy is true shows a health badge on the recipe.
-                    veryHealthy &&
+                    false &&
                     <i className="single-post__health-score las la-apple-alt" title="Healthy recipe badge" aria-label="Healthy recipe badge"></i>
                 }
                 {
@@ -64,9 +64,9 @@ const SinglePostItem = ({ image, title, description, link, dishTypes, veryHealth
 
                 <div className="single-post__info">
                     {
-                        dishTypes?.length > 0 &&
+                        tags?.length > 0 &&
                         <div className="single-post__dish-types">
-                            {dishTypes?.slice(0, 2).map((dishType, index) => <Badge key={index.toString()} message={dishType} />)}
+                            {tags?.slice(0, 2).map((tag, index) => <Badge key={index.toString()} message={tag.name} />)}
                         </div>
                     }
                     <Link to={link}>

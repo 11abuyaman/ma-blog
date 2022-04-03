@@ -38,6 +38,7 @@ const PostDetails = ({ posts, initPosts }) => {
         // Fetch(get) recipe details based on the recipe ID.
         isLoading(true);
         try {
+            console.log(`${API_BASE_URL}/posts/${id}/`);
             let result = await axios.get(`${API_BASE_URL}/posts/${id}/`);
             let data = result.data;
             console.log(data);
@@ -48,19 +49,6 @@ const PostDetails = ({ posts, initPosts }) => {
             console.error(`**ERR:fetchPostDetails ${error}`);
         }
         isLoading(false);
-    }
-
-    const fetchSimilarRecipe = async () => {
-        // Fetch recipes similar to this recipe.
-        try {
-            let result = await axios.get(`${API_BASE_URL}/recipes/715538/similar?apiKey=${API_KEY}&number=4`);
-            let data = result.data;
-            if (result.status === 200)
-                setSimilarRecipes(data);
-        }
-        catch (error) {
-            console.error(`**ERR:fetchSimilarRecipe ${error}`);
-        }
     }
 
     let processScroll = () => {
@@ -112,7 +100,7 @@ const PostDetails = ({ posts, initPosts }) => {
                             <h1 className="recipe-details__title">{postData.title}</h1>
                             <div className="recipe-details__meta__dish-types">
                                 {
-                                    // postData.dishTypes.map((item, index) => <Badge key={index.toString()} message={item} />)
+                                    postData.tags.map((item, index) => <Badge key={index.toString()} message={item.name} />)
                                 }
                             </div>
                         </div>
@@ -127,18 +115,9 @@ const PostDetails = ({ posts, initPosts }) => {
                             </section>
                         }
                         {
-                            // Recipe ingredients
-                            postData.extendedIngredients &&
-                            <IngredientsList
-                                ingredients={postData.extendedIngredients}
-                            />
-                        }
-                        {
-                            // Recipe instructions
-                            postData.instructions &&
+                            postData.body &&
                             <section>
-                                <h2>Instructions</h2>
-                                <div className="recipe-details__content__instructions">{Parser(postData.instructions)}</div>
+                                <p>{Parser(postData.body)}</p>
                             </section>
                         }
                     </div>

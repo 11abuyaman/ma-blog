@@ -11,6 +11,9 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@tiptap/extension-code-block": "^2.0.0-beta.37",
+    "@tiptap/extension-document": "^2.0.0-beta.15",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.48",
     "@tiptap/react": "^2.0.0-beta.108",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
@@ -39,12 +42,24 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -60,7 +75,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-essentials": "^6.4.20",
+    "@storybook/addon-interactions": "^6.4.20",
+    "@storybook/addon-links": "^6.4.20",
+    "@storybook/builder-webpack5": "^6.4.20",
+    "@storybook/manager-webpack5": "^6.4.20",
+    "@storybook/node-logger": "^6.4.20",
+    "@storybook/preset-create-react-app": "^4.1.0",
+    "@storybook/react": "^6.4.20",
+    "@storybook/testing-library": "0.0.9",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6"
+    "enzyme-adapter-react-16": "^1.15.6",
+    "webpack": "^5.71.0"
   }
 }
