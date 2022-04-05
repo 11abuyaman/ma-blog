@@ -46,6 +46,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="post/:id/" element={<PostDetails />} />
             <Route path="post/:id/edit/" element={<PostEditor />} />
+            <Route path="post/new/" element={<PostEditor />} />
           </Routes>
         </Suspense>
       </main>

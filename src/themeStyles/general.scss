@@ -3,6 +3,7 @@
 @import './icons/line-awesome/css/line-awesome.min';
 @import "./editor";
 @import "./typography";
+@import "./forms";
 
 * {
     box-sizing: border-box;
@@ -142,8 +143,6 @@ body {
         section {
             background-color: var(--white);
             border-radius: var(--radius-sm);
-            padding: var(--padding-lg);
-            border: var(--border-width) solid var(--border-color);
             width: 100%;
         }
     }

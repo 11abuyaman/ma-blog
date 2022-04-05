@@ -10,12 +10,21 @@ import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
 import "./PostEditor.scss";
 import CodeBlock from "@tiptap/extension-code-block";
+import { useParams } from "react-router-dom";
+import FileInput from "../../components/FileInput/FileInput";
 
 const CustomDocument = Document.extend({
     content: 'heading block*',
 });
 
 const PostEditor = () => {
+    const { id } = useParams();
+    const [featuredImage, setFeaturedImage] = useState(null);
+
+    useEffect(() => {
+        console.log(id);
+    }, [])
+
     const editor = useEditor({
         editorProps: {
             attributes: {
@@ -35,12 +44,12 @@ const PostEditor = () => {
                     return 'Can you add some further context?'
                 },
             }),
-            CodeBlock.configure({
-                HTMLAttributes: {
-                    class: "editor-code-block",
-                },
-                languageClassPrefix: 'language-',
-            })
+            // CodeBlock.configure({
+            //     HTMLAttributes: {
+            //         class: "editor-code-block",
+            //     },
+            //     languageClassPrefix: 'language-',
+            // })
         ],
     });
 
@@ -62,7 +71,6 @@ const PostEditor = () => {
                 data: formdata,
                 headers: { "Content-Type": "multipart/form-data" },
             });
-            // console.log(await result.statusText());
         } catch (error) {
             console.error(`**ERR:createPost ${error}`);
         }
@@ -79,6 +87,15 @@ const PostEditor = () => {
             <div className="sidebar-1">
                 <div className="sidebar-1__inner">
                     <section>
+                        <h6>Featured image</h6>
+                        <FileInput
+                            accept={[".jpg", ".jpeg", ".png"]}
+                            selectedFile={featuredImage}
+                            onChange={(e) => {
+                                setFeaturedImage(e.target.files ? e.target.files[0] : []);
+                            }}
+                            multiple
+                        />
                         <Button label={"Create"} onClick={createPost} />
                     </section>
                 </div>
